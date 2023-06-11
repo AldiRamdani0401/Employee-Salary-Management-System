@@ -15,8 +15,9 @@ const DataPegawaiList = () => {
         setDataPegawai(response.data);
     }
 
-    const deleteDataPegawai = async() => {
-
+    const deleteDataPegawai = async(id) => {
+        await axios.delete(`http://localhost:5000/data_pegawai/${id}`);
+        getDataPegawai();
     }
 
   return (
@@ -26,7 +27,7 @@ const DataPegawaiList = () => {
         <table className='table is-striped is-fullwidth'>
             <thead>
                 <tr>
-                    <th>NO</th>
+                    <th>No</th>
                     <th>NIK</th>
                     <th>Nama Pegawai</th>
                     <th>Jabatan</th>
