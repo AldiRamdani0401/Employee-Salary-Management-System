@@ -1,0 +1,101 @@
+######################
+#### Data Pegawai ####
+######################
+
+### get All Data Pegawai
+GET http://localhost:5000/data_pegawai
+
+
+### get Single Data Pegawai by ID
+GET http://localhost:5000/data_pegawai/id/2
+
+### get Single Data Pegawai by NIK
+GET http://localhost:5000/data_pegawai/nik/223344
+
+### get Single Data Pegawai by NAME
+GET http://localhost:5000/data_pegawai/name/budi
+
+### Create Data Pegawai
+POST http://localhost:5000/data_pegawai
+Content-Type: application/json
+
+{
+    "nik": 223344,
+    "nama_pegawai": "Cecep",
+    "username": "cecep",
+    "password": "12345",
+    "confPassword": "12345",
+    "jenis_kelamin": "Laki-Laki",
+    "jabatan": "Operator Produksi",
+    "tanggal_masuk": "11-02-2023",
+    "status": "Karyawan Tetap",
+    "photo": ,
+    "hak_akses": "pegawai"
+}
+
+
+
+### Update Data Pegawai
+PATCH  http://localhost:5000/data_pegawai/2
+Content-Type: application/json
+
+{
+    "nik": 223344,
+    "nama_pegawai": "Budi",
+    "username": "budi",
+    "jenis_kelamin": "Laki-Laki",
+    "jabatan": "Operator Produksi",
+    "tanggal_masuk": "11-02-2023",
+    "status": "Karyawan Tetap",
+    "photo": ,
+    "hak_akses": "pegawai"
+}
+
+### Change Password Admin (All data pegawai)
+PATCH  http://localhost:5000/data_pegawai/2/change_password
+Content-Type: application/json
+
+{
+    "password":"budi",
+    "confPassword":"budi"
+}
+
+### Change Password Pegawai (Self)
+PATCH  http://localhost:5000/change_password
+Content-Type: application/json
+
+{
+    "password" : "update",
+    "confPassword" : "update"
+}
+
+
+### Delete Data Pegawai
+DELETE   http://localhost:5000/data_pegawai/1
+
+
+
+######################
+### Authentication ###
+######################
+
+### Login Pegawai
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "budi",
+    "password": "budi"
+}
+
+### Login Admin
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "aldi",
+    "password": "update"
+}
+
+### Me
+GET  http://localhost:5000/me
