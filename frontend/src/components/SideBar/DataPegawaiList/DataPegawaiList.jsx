@@ -26,11 +26,12 @@ const DataPegawaiList = () => {
         <table className='table is-striped is-fullwidth'>
             <thead>
                 <tr>
-                    <th>Nama Pegawai</th>
+                    <th>NO</th>
                     <th>NIK</th>
+                    <th>Nama Pegawai</th>
                     <th>Jabatan</th>
-                    <th>Jenis Kelamin</th>
                     <th>Hak Akses</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>

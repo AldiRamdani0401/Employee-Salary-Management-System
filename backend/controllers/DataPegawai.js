@@ -25,7 +25,7 @@ export const getDataPegawaiByID = async (req, res) => {
         const response = await DataPegawai.findOne({
             attributes: [
                 'id', 'nik', 'nama_pegawai',
-                'jenis_kelamin', 'jabatan', 'tanggal_masuk',
+                'jenis_kelamin', 'jabatan', 'username', 'tanggal_masuk',
                 'status', 'photo', 'hak_akses'
             ],
             where: {
@@ -168,30 +168,6 @@ export const updateDataPegawai = async (req, res) => {
             status, hak_akses
         } = req.body;
 
-    let fileName = "";
-    if(req.files === null){
-        fileName = pegawai.photo;
-    }else{
-        const file = req.files.photo;
-        const fileSize = file.data.length;
-        const ext = path.extname(file.name);
-        fileName = file.md5 + ext;
-        const allowedType = ['.png', '.jpg', 'jpeg'];
-
-        if(!allowedType.includes(ext.toLocaleLowerCase())) return res.status(422).json({msg: "invalid Images"});
-
-        if(fileSize > 2000000) return res.status(422).json({msg: "Image must be less than 2 MB"});
-
-        const filepath = `./public/images/${pegawai.photo}`;
-        fs.unlinkSync(filepath);
-
-        file.mv(`./public/images/${fileName}`, (err)=>{
-            if(err) return res.status(500).json({msg: err.message});
-        });
-    }
-
-    const url = `${req.protocol}://${req.get("host")}/images/${fileName}`;
-
     try {
         await DataPegawai.update({
             nik: nik,
@@ -201,8 +177,6 @@ export const updateDataPegawai = async (req, res) => {
             jabatan: jabatan,
             tanggal_masuk: tanggal_masuk,
             status: status,
-            photo: fileName,
-            url: url,
             hak_akses: hak_akses
         }, {
             where: {
