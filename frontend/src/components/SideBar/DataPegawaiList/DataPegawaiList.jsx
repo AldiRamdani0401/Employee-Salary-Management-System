@@ -10,7 +10,7 @@ const DataPegawaiList = () => {
         const response = await axios.get("http://localhost:5000/data_pegawai");
         setDataPegawai(response.data);
     }
-    
+
     useEffect(() => {
         getDataPegawai();
     }, []);
@@ -24,12 +24,14 @@ const DataPegawaiList = () => {
   return (
     <section className="section">
       <div className="container">
-        <h1 className="title">Data Pegawai</h1>
-        <h2 className="subtitle">Daftar Data Pegawai</h2>
-        <Link to="/data_pegawai/add" className="button is-primary mb-3">
-          Tambah Data
-        </Link>
-        <table className="table is-striped is-fullwidth">
+        <div className='header mt-2 p-5 has-background-link is-flex is-justify-content-space-between'>
+            <h1 className="title p-3 has-text-white">Data Pegawai</h1>
+                <Link to="/data_pegawai/add" className="button is-success mt-4">
+                Tambah Data
+                </Link>
+        </div>
+        <div>
+            <table className="table is-striped is-fullwidth">
           <thead>
             <tr>
               <th>No</th>
@@ -66,6 +68,7 @@ const DataPegawaiList = () => {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </section>
   );

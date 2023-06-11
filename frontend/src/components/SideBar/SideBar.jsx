@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LogOut, reset } from '../../features/authSlice';
 
-import { IoPerson, IoHome, IoLogOut, IoMedalOutline } from 'react-icons/io5';
+import { IoPerson, IoHome, IoLogOut, IoMedalOutline, IoCalendarClearSharp, IoCut, IoCashOutline } from 'react-icons/io5';
 
 const SideBar = () => {
 
@@ -19,19 +19,42 @@ const SideBar = () => {
 
     return (
         <div>
-            <aside className="menu pl-2 has-shadow">
-                <p className="menu-label">
+            <aside className="menu pl-2 pt-5 is-white">
+                <p className="menu-label p-2 has-text-white has-background-link has-text-weight-bold">
                     General
                 </p>
-                <ul className="menu-list">
-                    <li><NavLink to={"/dashboard"}><IoHome/>Dashboard</NavLink></li>
+                <ul className="menu-list m-3">
+                    <li><NavLink to={"/dashboard"}><IoHome/> Dashboard</NavLink></li>
                 </ul>
                 { user && user.hak_akses === "admin" && (
                     <div>
-                        <p className="menu-label">
+                        <p className="menu-label p-2 has-text-white has-background-link has-text-weight-bold">
                         Master Data
                         </p>
-                        <ul className="menu-list">
+                        <ul className="menu-list m-3">
+                        <li><NavLink to={"/data_pegawai"}><IoPerson/> Data Pegawai</NavLink></li>
+                        <li><NavLink to={"/data_jabatan"}><IoMedalOutline/> Data Jabatan</NavLink></li>
+                        </ul>
+                    </div>
+                )}
+                { user && user.hak_akses === "admin" && (
+                    <div>
+                        <p className="menu-label p-2 has-text-white has-background-link has-text-weight-bold">
+                        Transaksi
+                        </p>
+                        <ul className="menu-list m-3">
+                        <li><NavLink to={"/data_pegawai"}><IoCalendarClearSharp/> Data Absensi</NavLink></li>
+                        <li><NavLink to={"/data_jabatan"}><IoCut/> Data Potongan</NavLink></li>
+                        <li><NavLink to={"/data_jabatan"}><IoCashOutline/> Data Gaji</NavLink></li>
+                        </ul>
+                    </div>
+                )}
+                { user && user.hak_akses === "admin" && (
+                    <div>
+                        <p className="menu-label p-2 has-text-white has-background-link has-text-weight-bold">
+                        Laporan
+                        </p>
+                        <ul className="menu-list m-3">
                         <li><NavLink to={"/data_pegawai"}><IoPerson/>Data Pegawai</NavLink></li>
                         <li><NavLink to={"/data_jabatan"}><IoMedalOutline/>Data Jabatan</NavLink></li>
                         </ul>
@@ -41,7 +64,7 @@ const SideBar = () => {
                     <p className="menu-label">
                         Admin
                     </p>
-                    <ul className="menu-list">
+                    <ul className="menu-list m-3">
                         <li><NavLink to={"/users"}><IoPerson/>users</NavLink></li>
                     </ul>
                 </div>

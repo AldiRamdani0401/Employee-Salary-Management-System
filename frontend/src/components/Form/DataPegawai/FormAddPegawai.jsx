@@ -59,126 +59,175 @@ const FormAddPegawai = () => {
         }
       }
 
-  return (
-    <div>
-        <h1 className="title">Data Pegawai</h1>
-        <h2 className="subtitle">Tambah Data Pegawai</h2>
-        <div className="card is-shadowless">
-            <card className="content">
+    return (
+        <section className='mt-2 mr-5 ml-5'>
+            <div className='header p-5 has-background-info'>
+                <h2 className=" has-text-weight-bold has-text-white">Tambah Data Pegawai</h2>
+            </div>
+            <div className="card is-shadowless p-2">
+                <card className="content">
                 <div className="content">
                     <form onSubmit={saveDataPegawai}>
-                        <p className="has-text-centered">{msg}</p>
+                    <p className="has-text-centered">{msg}</p>
+                    <div className="columns">
+                        <div className="column">
                         <div className="field">
                             <label className="label">Nama Pegawai</label>
                             <div className="control">
-                                <input type="text" className="input"
+                            <input
+                                type="text"
+                                className="input"
                                 value={namaPegawai}
                                 onChange={(e) => setNamaPegawai(e.target.value)}
-                                placeholder='nama pegawai'/>
+                                placeholder='nama pegawai'
+                            />
                             </div>
                         </div>
+                        </div>
+                        <div className="column">
                         <div className="field">
-                            <label className="label">NIk</label>
+                            <label className="label">NIK</label>
                             <div className="control">
-                                <input type="text" className="input"
+                            <input
+                                type="text"
+                                className="input"
                                 value={nik}
                                 onChange={(e) => setNik(e.target.value)}
-                                placeholder='nomor NIK'/>
+                                placeholder='nomor NIK'
+                            />
                             </div>
                         </div>
+                        </div>
+                        <div className="column">
                         <div className="field">
                             <label className="label">Jabatan</label>
                             <div className="control">
-                                <input type="text" className="input"
+                            <input
+                                type="text"
+                                className="input"
                                 value={jabatan}
                                 onChange={(e) => setJabatan(e.target.value)}
-                                placeholder='jabatan pegawai'/>
+                                placeholder='jabatan pegawai'
+                            />
                             </div>
                         </div>
+                        </div>
+                        <div className="column">
                         <div className="field">
                             <label className="label">Jenis Kelamin</label>
                             <div className="control">
-                                <input type="text" className="input"
+                            <input
+                                type="text"
+                                className="input"
                                 value={jenisKelamin}
                                 onChange={(e) => setJenisKelamin(e.target.value)}
-                                placeholder='jenis kelamin pegawai'/>
+                                placeholder='jenis kelamin pegawai'
+                            />
                             </div>
                         </div>
-                        <div className="field">
-                            <label className="label">Username</label>
-                            <div className="control">
-                                <input type="text" className="input"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                placeholder='username pegawai'/>
-                            </div>
                         </div>
-                        <div className="field">
-                            <label className="label">Photo</label>
-                            <div className="control">
-                                <input
-                                type="file"
-                                className="file-input"
-                                onChange={loadImage}
-                                />
-                                <span className="file-cta">
-                                <span className="file-label">Choose a file...</span>
-                                </span>
-                            </div>
+                    </div>
+                    <div className="field">
+                        <label className="label">Username</label>
+                        <div className="control">
+                        <input
+                            type="text"
+                            className="input"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder='username pegawai'
+                        />
                         </div>
-                    {preview ? (
-                        <figure className="image is-128x128">
-                        <img src={preview} alt="Preview" />
-                        </figure>
-                    ) : (
-                        ""
-                    )}
-                        <div className="field">
-                            <label className="label">Status</label>
-                            <div className="control">
-                                <input type="text" className="input"
-                                value={status}
-                                onChange={(e) => setStatus(e.target.value)}
-                                placeholder='username pegawai'/>
-                            </div>
+                    </div>
+                    <div className="field">
+                        <label className="label">Password</label>
+                        <div className="control">
+                        <input
+                            type="password"
+                            className="input"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder='*****'
+                        />
                         </div>
-                        <div className="field">
-                            <label className="label">Tanggal Masuk</label>
-                            <div className="control">
-                                <input type="text" className="input"
-                                value={tanggalMasuk}
-                                onChange={(e) => setTanggalMasuk(e.target.value)}
-                                placeholder='username pegawai'/>
-                            </div>
+                    </div>
+                    <div className="field">
+                        <label className="label">Confirm Password</label>
+                        <div className="control">
+                        <input
+                            type="password"
+                            className="input"
+                            value={confPassword}
+                            onChange={(e) => setConfPassword(e.target.value)}
+                            placeholder='*****'
+                        />
                         </div>
-                        <div className="field">
-                            <label className="label">Password</label>
-                            <div className="control">
-                                <input type="password" className="input"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder='*****'/>
-                            </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">Confirm Password</label>
-                            <div className="control">
-                                <input type="password" className="input"
-                                value={confPassword}
-                                onChange={(e) => setConfPassword(e.target.value)}
-                                placeholder='*****'/>
-                            </div>
-                        </div>
+                    </div>
+                    <div className="columns">
+                        <div className="column">
                         <div className="field">
                             <label className="label">Hak Akses</label>
                             <div className="select is-fullwidth">
-                                <select
+                            <select
                                 value={hak_akses}
-                                onChange={(e) => setHakAkses(e.target.value)}>
-                                    <option>-- pilih hak akses --</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="pegawai">Pegawai</option>
-                                </select>
+                                onChange={(e) => setHakAkses(e.target.value)}
+                            >
+                                <option>-- pilih hak akses --</option>
+                                <option value="admin">Admin</option>
+                                <option value="pegawai">Pegawai</option>
+                            </select>
+                            </div>
+                        </div>
+                        </div>
+                        <div className="column">
+                        <div className="field">
+                            <label className="label">Tanggal Masuk</label>
+                            <div className="control">
+                            <input
+                                type="text"
+                                className="input"
+                                value={tanggalMasuk}
+                                onChange={(e) => setTanggalMasuk(e.target.value)}
+                                placeholder='tanggal masuk pegawai'
+                            />
+                            </div>
+                        </div>
+                        </div>
+                        <div className="column">
+                        <div className="field">
+                            <label className="label">Status</label>
+                            <div className="control">
+                            <input
+                                type="text"
+                                className="input"
+                                value={status}
+                                onChange={(e) => setStatus(e.target.value)}
+                                placeholder='status pegawai'
+                            />
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div className="field">
+                            <label className="label">Photo</label>
+                            <div className="file has-name">
+                                <label className="file-label">
+                                <input
+                                    className="file-input"
+                                    type="file"
+                                    onChange={loadImage}
+                                />
+                                <span className="file-cta">
+                                    <span className="file-label">Choose a file...</span>
+                                </span>
+                                <span>
+                                {preview ? (
+                                    <figure className="image is-128x128">
+                                        <img src={preview} alt="Preview" />
+                                    </figure>
+                                    ) : ("")}
+                                </span>
+                                </label>
                             </div>
                         </div>
                         <div className="field">
@@ -188,10 +237,10 @@ const FormAddPegawai = () => {
                         </div>
                     </form>
                 </div>
-            </card>
-        </div>
-    </div>
-  )
+                </card>
+            </div>
+        </section>
+    )
 }
 
 export default FormAddPegawai

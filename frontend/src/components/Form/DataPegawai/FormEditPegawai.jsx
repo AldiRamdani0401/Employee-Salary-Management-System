@@ -56,66 +56,85 @@ const FormEditPegawai = () => {
     }
 
   return (
-<div>
-        <h1 className="title">Data Pegawai</h1>
-        <h2 className="subtitle">Edit Data Pegawai</h2>
-        <div className="card is-shadowless">
+    <section className='mt-2 mr-5 ml-5'>
+        <div className='header p-5 has-background-info'>
+            <h2 className=" has-text-weight-bold has-text-white">Tambah Data Pegawai</h2>
+        </div>
+        <div className="card is-shadowless p-3">
             <card className="content">
                 <div className="content">
                     <form onSubmit={updateUser}>
                         <p className='has-text-centered'>{msg}</p>
-                        <div className="field">
-                            <label className="label">Nama Pegawai</label>
-                            <div className="control">
-                                <input type="text" className="input"
-                                value={namaPegawai}
-                                onChange={(e) => setNamaPegawai(e.target.value)}
-                                placeholder='nama pegawai'/>
+                        <div className="columns">
+                            <div className="column">
+                                <div className="field">
+                                <label className="label">Nama Pegawai</label>
+                                    <div className="control">
+                                        <input type="text" className="input"
+                                        value={namaPegawai}
+                                        onChange={(e) => setNamaPegawai(e.target.value)}
+                                        placeholder='nama pegawai'/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="column">
+                                <div className="field">
+                                    <label className="label">NIk</label>
+                                    <div className="control">
+                                        <input type="text" className="input"
+                                        value={nik}
+                                        onChange={(e) => setNik(e.target.value)}
+                                        placeholder='nomor NIK'/>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="field">
-                            <label className="label">NIk</label>
-                            <div className="control">
-                                <input type="text" className="input"
-                                value={nik}
-                                onChange={(e) => setNik(e.target.value)}
-                                placeholder='nomor NIK'/>
+                        <div className="columns">
+                            <div className="column">
+                                <div className="field">
+                                    <label className="label">Jabatan</label>
+                                    <div className="control">
+                                        <input type="text" className="input"
+                                        value={jabatan}
+                                        onChange={(e) => setJabatan(e.target.value)}
+                                        placeholder='jabatan pegawai'/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="column">
+                                <div className="field">
+                                    <label className="label">Jenis Kelamin</label>
+                                    <div className="control">
+                                        <input type="text" className="input"
+                                        value={jenisKelamin}
+                                        onChange={(e) => setJenisKelamin(e.target.value)}
+                                        placeholder='jenis kelamin pegawai'/>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="field">
-                            <label className="label">Jabatan</label>
-                            <div className="control">
-                                <input type="text" className="input"
-                                value={jabatan}
-                                onChange={(e) => setJabatan(e.target.value)}
-                                placeholder='jabatan pegawai'/>
+                        <div className="columns">
+                            <div className="column">
+                                <div className="field">
+                                    <label className="label">Username</label>
+                                    <div className="control">
+                                        <input type="text" className="input"
+                                        value={username}
+                                        onChange={(e) => setUsername(e.target.value)}
+                                        placeholder='username pegawai'/>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">Jenis Kelamin</label>
-                            <div className="control">
-                                <input type="text" className="input"
-                                value={jenisKelamin}
-                                onChange={(e) => setJenisKelamin(e.target.value)}
-                                placeholder='jenis kelamin pegawai'/>
-                            </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">Username</label>
-                            <div className="control">
-                                <input type="text" className="input"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                placeholder='username pegawai'/>
-                            </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">Status</label>
-                            <div className="control">
-                                <input type="text" className="input"
-                                value={status}
-                                onChange={(e) => setStatus(e.target.value)}
-                                placeholder='status pegawai'/>
+                            <div className="column">
+                                <div className="field">
+                                    <label className="label">Status</label>
+                                    <div className="control">
+                                        <input type="text" className="input"
+                                        value={status}
+                                        onChange={(e) => setStatus(e.target.value)}
+                                        placeholder='status pegawai'/>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="field">
@@ -128,7 +147,7 @@ const FormEditPegawai = () => {
                                     <option value="pegawai">Pegawai</option>
                                 </select>
                             </div>
-                            <div className="field">
+                            <div className="field mt-5">
                                 <div className="control">
                                     <button type='submit' className="button is-success">Update</button>
                                 </div>
@@ -138,7 +157,7 @@ const FormEditPegawai = () => {
                 </div>
             </card>
         </div>
-    </div>
+    </section>
   )
 }
 

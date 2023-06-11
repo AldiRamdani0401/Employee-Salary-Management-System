@@ -5,7 +5,7 @@ const FormEditJabatan = () => {
     <div>
         <h1 className="title">Data Jabatan</h1>
         <h2 className="subtitle">Edit Data Jabatan</h2>
-        <div className="card is-shadowless">
+        <div className="card is-shadowless p-2">
             <card className="content">
                 <div className="content">
                     <form>

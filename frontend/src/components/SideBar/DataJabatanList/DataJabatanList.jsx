@@ -23,9 +23,12 @@ const DataJabatanList = () => {
   return (
     <section className="section">
         <div className='container'>
-            <h1 className="title">Data Jabatan</h1>
-            <h2 className="subtitle">Daftar Data Jabatan</h2>
-            <Link to="/data_jabatan/add" className="button is-primary mb-3">Tambah Data</Link>
+        <div className='header mt-2 p-5 has-background-link is-flex is-justify-content-space-between'>
+            <h1 className="title p-3 has-text-white">Data Jabatan</h1>
+                <Link to="/data_jabatan/add" className="button is-success mt-4">
+                Tambah Data
+                </Link>
+        </div>
             <table className="table is-striped is-fullwidth">
             <thead>
                 <tr>

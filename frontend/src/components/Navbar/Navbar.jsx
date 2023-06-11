@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LogOut, reset } from '../../features/authSlice';
+import { IoGrid, IoGridSharp } from 'react-icons/io5';
 
 const Navbar = () => {
 
@@ -18,9 +19,10 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className="navbar is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
+            <nav className="navbar is-fixed-top has-shadow is-link" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <NavLink to="/dashboard" className="navbar-item">
+                <h1 className='has-text-white has-text-weight-bold p-2'><IoGridSharp/> Employee Salary Management</h1>
                 {/* <img src={logo} width="112" height="28" alt='logo'/> */}
                 </NavLink>
                 <a href='!#' role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
