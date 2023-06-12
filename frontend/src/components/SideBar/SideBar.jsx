@@ -55,8 +55,9 @@ const SideBar = () => {
                         Laporan
                         </p>
                         <ul className="menu-list m-3">
-                        <li><NavLink to={"/data_pegawai"}><IoPerson/>Data Pegawai</NavLink></li>
-                        <li><NavLink to={"/data_jabatan"}><IoMedalOutline/>Data Jabatan</NavLink></li>
+                        <li><NavLink to={"/data_pegawai"}><IoPerson/>Laporan Gaji</NavLink></li>
+                        <li><NavLink to={"/data_jabatan"}><IoMedalOutline/>Laporan Absensi</NavLink></li>
+                        <li><NavLink to={"/data_jabatan"}><IoMedalOutline/>Slip Gaji</NavLink></li>
                         </ul>
                     </div>
                 )}

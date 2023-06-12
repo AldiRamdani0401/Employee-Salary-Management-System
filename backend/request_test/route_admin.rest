@@ -121,6 +121,9 @@ DELETE   http://localhost:5000/data_pegawai/1
 ### Get All Data Jabatan
 GET  http://localhost:5000/data_jabatan
 
+### Get Data Jabatan By ID
+GET  http://localhost:5000/data_jabatan/id/1
+
 ### Create Data Jabatan
 POST  http://localhost:5000/data_jabatan
 Content-Type: application/json

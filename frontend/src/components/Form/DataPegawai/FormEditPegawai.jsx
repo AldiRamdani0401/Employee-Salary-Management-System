@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 
 const FormEditPegawai = () => {
 
@@ -73,6 +73,7 @@ const FormEditPegawai = () => {
                                         <input type="text" className="input"
                                         value={namaPegawai}
                                         onChange={(e) => setNamaPegawai(e.target.value)}
+                                        required='true'
                                         placeholder='nama pegawai'/>
                                     </div>
                                 </div>
@@ -84,6 +85,7 @@ const FormEditPegawai = () => {
                                         <input type="text" className="input"
                                         value={nik}
                                         onChange={(e) => setNik(e.target.value)}
+                                        required='true'
                                         placeholder='nomor NIK'/>
                                     </div>
                                 </div>
@@ -97,6 +99,7 @@ const FormEditPegawai = () => {
                                         <input type="text" className="input"
                                         value={jabatan}
                                         onChange={(e) => setJabatan(e.target.value)}
+                                        required='true'
                                         placeholder='jabatan pegawai'/>
                                     </div>
                                 </div>
@@ -108,6 +111,7 @@ const FormEditPegawai = () => {
                                         <input type="text" className="input"
                                         value={jenisKelamin}
                                         onChange={(e) => setJenisKelamin(e.target.value)}
+                                        required='true'
                                         placeholder='jenis kelamin pegawai'/>
                                     </div>
                                 </div>
@@ -121,6 +125,7 @@ const FormEditPegawai = () => {
                                         <input type="text" className="input"
                                         value={username}
                                         onChange={(e) => setUsername(e.target.value)}
+                                        required='true'
                                         placeholder='username pegawai'/>
                                     </div>
                                 </div>
@@ -132,6 +137,7 @@ const FormEditPegawai = () => {
                                         <input type="text" className="input"
                                         value={status}
                                         onChange={(e) => setStatus(e.target.value)}
+                                        required='true'
                                         placeholder='status pegawai'/>
                                     </div>
                                 </div>
@@ -143,15 +149,27 @@ const FormEditPegawai = () => {
                                 <select
                                 value={hakAkses}
                                 onChange={(e) => setHakAkses(e.target.value)}>
+                                    <option>-- pilih hak akses --</option>
                                     <option value="admin">Admin</option>
                                     <option value="pegawai">Pegawai</option>
                                 </select>
                             </div>
-                            <div className="field mt-5">
-                                <div className="control">
-                                    <button type='submit' className="button is-success">Update</button>
+                            <div className="columns p-5">
+                            <div className="column">
+                                <div className="field">
+                                    <div className="control">
+                                        <button type='submit' className="button is-success">Save</button>
+                                    </div>
                                 </div>
                             </div>
+                            <div className="column is-12">
+                                <div className="field">
+                                        <div className="control">
+                                            <Link to={'/data_pegawai'} type='button' className="button is-link">Kembali</Link>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </form>
                 </div>

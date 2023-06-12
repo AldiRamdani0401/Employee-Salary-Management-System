@@ -37,6 +37,7 @@ const DataJabatanList = () => {
                     <th>Gaji Pokok</th>
                     <th>Tj.Transport</th>
                     <th>Uang Makan</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
