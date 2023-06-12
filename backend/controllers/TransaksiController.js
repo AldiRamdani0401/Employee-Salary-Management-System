@@ -22,6 +22,26 @@ export const viewDataKehadiran = async(req, res) => {
     }
 }
 
+// method untuk menampilkan semua Data Kehadiran
+export const viewDataKehadiranByID = async(req, res) => {
+    try {
+        const dataKehadiran = await DataKehadiran.findOne({
+            where: {
+                id : req.params.id
+            }
+            ,attributes: [
+                'id', 'bulan', 'nik',
+                'nama_pegawai', 'jenis_kelamin',
+                'nama_jabatan', 'hadir',
+                'sakit', 'alpha', 'createdAt'
+            ]
+        });
+        res.json(dataKehadiran);
+    } catch (error) {
+        res.status(500).json({msg: error.message});
+    }
+}
+
 // method untuk menambah data kehadiran
 export const createDataKehadiran = async (req, res) => {
     const {
@@ -95,9 +115,9 @@ export const updateDataKehadiran = async (req, res) => {
                 id: req.params.id
             }
         });
-        res.status(200).json({message: "Data kehadiran berhasil diupdate"});
+        res.status(200).json({msg: "Data kehadiran berhasil diupdate"});
     } catch (error) {
-        console.log(error.message);
+        console.log(error.msg);
     }
 }
 
@@ -109,9 +129,9 @@ export const deleteDataKehadiran = async (req, res) => {
                 id: req.params.id
             }
         });
-        res.status(200).json({message: "Delete data berhasil"});
+        res.status(200).json({msg: "Delete data berhasil"});
     } catch (error) {
-        console.log(error.message);
+        console.log(error.msg);
     }
 }
 

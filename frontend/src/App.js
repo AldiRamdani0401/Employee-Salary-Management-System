@@ -12,6 +12,7 @@ import EditJabatan from "./pages/DataJabatan/Form/EditJabatan";
 
 import DataKehadiran from "./pages/DataKehadiran/DataKehadiran.jsx";
 import AddKehadiran from "./pages/DataKehadiran/Form/AddKehadiran.jsx";
+import EditKehadiran from "./pages/DataKehadiran/Form/EditKehadiran.jsx";
 
 function App(){
   return (
@@ -32,6 +33,7 @@ function App(){
         <Routes>
           <Route path="/data_kehadiran" element={<DataKehadiran/>}/>
           <Route path="/data_kehadiran/add" element={<AddKehadiran/>}/>
+          <Route path="/data_kehadiran/edit/:id" element={<EditKehadiran/>}/>
         </Routes>
       </Router>
     </div>

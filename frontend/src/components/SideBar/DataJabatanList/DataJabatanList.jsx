@@ -50,7 +50,7 @@ const DataJabatanList = () => {
                     <td>{jabatan.tj_transport}</td>
                     <td>{jabatan.uang_makan}</td>
                     <td>
-                        <Link to={`/data_jabatan/edit/${jabatan.id}`}
+                        <Link to={`/data_kehadiran/edit/${jabatan.id}`}
                         className='button is-small is-info'>Edit</Link>
                         <button onClick={() => deleteDataJabatan(jabatan.id)}
                         className='button is-small is-danger ml-2'>Delete</button>

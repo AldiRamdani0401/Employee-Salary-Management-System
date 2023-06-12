@@ -53,6 +53,7 @@ const FormEditJabatan = () => {
             <card className="content">
                 <div className="content">
                     <form onSubmit={updateData}>
+                        <p className='has-text-centered'>{msg}</p>
                         <div className="columns">
                             <div className="column">
                                 <div className="field">
