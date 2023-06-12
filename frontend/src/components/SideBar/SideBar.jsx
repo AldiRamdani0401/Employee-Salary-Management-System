@@ -43,8 +43,8 @@ const SideBar = () => {
                         Transaksi
                         </p>
                         <ul className="menu-list m-3">
-                        <li><NavLink to={"/data_pegawai"}><IoCalendarClearSharp/> Data Absensi</NavLink></li>
-                        <li><NavLink to={"/data_jabatan"}><IoCut/> Data Potongan</NavLink></li>
+                        <li><NavLink to={"/data_kehadiran"}><IoCalendarClearSharp/> Data Kehadiran</NavLink></li>
+                        <li><NavLink to={"/data_kehadiran"}><IoCut/> Data Potongan</NavLink></li>
                         <li><NavLink to={"/data_jabatan"}><IoCashOutline/> Data Gaji</NavLink></li>
                         </ul>
                     </div>

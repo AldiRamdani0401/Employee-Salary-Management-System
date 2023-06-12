@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import {IoMedalOutline} from 'react-icons/io5';
 
 const DataJabatanList = () => {
 
@@ -24,7 +25,7 @@ const DataJabatanList = () => {
     <section className="section">
         <div className='container'>
         <div className='header mt-2 p-5 has-background-link is-flex is-justify-content-space-between'>
-            <h1 className="title p-3 has-text-white">Data Jabatan</h1>
+            <h1 className="title p-3 has-text-white"><IoMedalOutline size='30px'/>  Data Jabatan</h1>
                 <Link to="/data_jabatan/add" className="button is-success mt-4">
                 Tambah Data
                 </Link>

@@ -25,8 +25,7 @@ export const viewDataKehadiran = async(req, res) => {
 // method untuk menambah data kehadiran
 export const createDataKehadiran = async (req, res) => {
     const {
-        nik, nama_pegawai,
-        jenis_kelamin, nama_jabatan,
+        nik, nama_pegawai, nama_jabatan, jenis_kelamin,
         hadir, sakit, alpha
     } = req.body;
 
@@ -47,7 +46,7 @@ export const createDataKehadiran = async (req, res) => {
             where: {
                 nik: nik
             }
-        });
+        })
 
         const nama_sudah_ada = await DataKehadiran.findOne({
             where: {
