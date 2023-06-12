@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 import PreviewDataPegawai from './Preview/PreviewDataPegawai'
 import PreviewDataJabatan from './Preview/PriviewDataJabatan'
@@ -125,7 +124,7 @@ const FormAddKehadiran = () => {
                         <div className="columns p-5">
                             <div className="column">
                                 <div className="field">
-                                    <div className="control">
+                                    <div className="control notification is-info">
                                         <button type='submit' className="button is-success">Save</button>
                                     </div>
                                 </div>

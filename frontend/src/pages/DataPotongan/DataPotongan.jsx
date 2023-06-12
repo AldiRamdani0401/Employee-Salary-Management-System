@@ -1,12 +1,11 @@
-import React, {useEffect} from "react";
+import React, {useEffect} from 'react';
 import Layout from "../Layout/Layout";
-import DataPegawaiList from "../../components/SideBar/DataPegawaiList/DataPegawaiList";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { getMe } from "../../features/authSlice";
+import DataPotonganList from '../../components/SideBar/DataPotonganList/DataPotonganList';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { getMe } from '../../features/authSlice';
 
-const DataPegawai = () => {
-
+const DataPotongan = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const {isError, user} = useSelector((state => state.auth));
@@ -26,9 +25,9 @@ const DataPegawai = () => {
 
     return (
         <Layout>
-            <DataPegawaiList/>
+            <DataPotonganList/>
         </Layout>
     )
 }
 
-export default DataPegawai
+export default DataPotongan

@@ -171,6 +171,22 @@ export const viewDataPotongan = async(req, res) => {
     }
 }
 
+
+// method untuk menampilkan Data Potongan By ID
+export const viewDataPotonganByID = async(req, res) => {
+    try {
+        const dataPotongan = await PotonganGaji.findOne({
+            attributes: ['id', 'potongan', 'jml_potongan'],
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json(dataPotongan)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 // method untuk update Data Potongan
 export const updateDataPotongan = async (req, res) => {
     try {

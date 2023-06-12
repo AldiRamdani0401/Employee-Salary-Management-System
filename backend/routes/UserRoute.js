@@ -34,7 +34,8 @@ import {
     createDataPotonganGaji,
     deleteDataPotongan,
     updateDataPotongan,
-    viewDataPotongan
+    viewDataPotongan,
+    viewDataPotonganByID
 } from "../controllers/TransaksiController.js";
 
 import {
@@ -90,6 +91,7 @@ router.patch('/data_kehadiran/update/:id', updateDataKehadiran);
 router.delete('/data_kehadiran/:id', verifyUser, adminOnly, deleteDataKehadiran);
 // Data Potongan
 router.get('/data_potongan', adminOnly, verifyUser, viewDataPotongan);
+router.get('/data_potongan/id/:id', adminOnly, verifyUser, viewDataPotonganByID);
 router.post('/data_potongan', adminOnly, verifyUser, createDataPotonganGaji);
 router.patch('/data_potongan/update/:id', adminOnly, verifyUser, updateDataPotongan);
 router.delete('/data_potongan/:id', adminOnly, verifyUser, deleteDataPotongan);

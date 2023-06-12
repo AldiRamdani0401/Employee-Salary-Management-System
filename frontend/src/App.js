@@ -14,6 +14,10 @@ import DataKehadiran from "./pages/DataKehadiran/DataKehadiran.jsx";
 import AddKehadiran from "./pages/DataKehadiran/Form/AddKehadiran.jsx";
 import EditKehadiran from "./pages/DataKehadiran/Form/EditKehadiran.jsx";
 
+import DataPotongan from "./pages/DataPotongan/DataPotongan.jsx";
+import AddDataPotongan from "./components/Form/DataPotongan/AddDataPotongan.jsx";
+import EditDataPotongan from "./components/Form/DataPotongan/EditDataPotongan.jsx";
+
 function App(){
   return (
     <div>
@@ -34,6 +38,11 @@ function App(){
           <Route path="/data_kehadiran" element={<DataKehadiran/>}/>
           <Route path="/data_kehadiran/add" element={<AddKehadiran/>}/>
           <Route path="/data_kehadiran/edit/:id" element={<EditKehadiran/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/data_potongan" element={<DataPotongan/>}/>
+          <Route path="/data_potongan/add" element={<AddDataPotongan/>}/>
+          <Route path="/data_potongan/edit/:id" element={<EditDataPotongan/>}/>
         </Routes>
       </Router>
     </div>

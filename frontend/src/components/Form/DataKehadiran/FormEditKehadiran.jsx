@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-
-import PreviewDataPegawai from './Preview/PreviewDataPegawai'
-import PreviewDataJabatan from './Preview/PriviewDataJabatan'
+import {IoCreate} from 'react-icons/io5';
 
 const FormEditKehadiran = () => {
 
@@ -59,7 +57,7 @@ const FormEditKehadiran = () => {
   return (
     <section className='mt-2 mr-5 ml-5'>
         <div className='header p-5 has-background-info'>
-            <h2 className=" has-text-weight-bold has-text-white">Edit Data Kehadiran</h2>
+            <h2 className=" has-text-weight-bold has-text-white"><IoCreate size='22px'/> Edit Data Kehadiran</h2>
         </div>
         <div className="card is-shadowless p-2">
             <card className="content">
@@ -161,14 +159,6 @@ const FormEditKehadiran = () => {
                     </form>
                 </div>
             </card>
-        </div>
-        <div className="columns">
-            <div className="column">
-                <PreviewDataPegawai/>
-            </div>
-            <div className="column">
-                <PreviewDataJabatan/>
-            </div>
         </div>
     </section>
   )
