@@ -19,7 +19,7 @@ DELETE   http://localhost:5000/logout
 ### === Change Password === ###
 
 ### Change Password Pegawai (Self)
-PATCH  http://localhost:5000/change_password
+PATCH  http://localhost:5000/change-password
 Content-Type: application/json
 
 {
@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 
 ### Change Password Admin (All data pegawai)
-PATCH  http://localhost:5000/data_pegawai/2/change_password
+PATCH  http://localhost:5000/data_pegawai/2/change-password
 Content-Type: application/json
 
 {
@@ -46,20 +46,20 @@ Content-Type: application/json
 /////// Data Pegawai //////
 
 ### get All Data Pegawai
-GET http://localhost:5000/data_pegawai
+GET http://localhost:5000/data-pegawai
 
 
 ### get Single Data Pegawai by ID
-GET http://localhost:5000/data_pegawai/id/2
+GET http://localhost:5000/data-pegawai/2
 
 ### get Single Data Pegawai by NIK
-GET http://localhost:5000/data_pegawai/nik/223344
+GET http://localhost:5000/data-pegawai/nik/223344
 
 ### get Single Data Pegawai by NAME
-GET http://localhost:5000/data_pegawai/name/budi
+GET http://localhost:5000/data-pegawai/name/Aldi Ramdani
 
 ### Create Data Pegawai
-POST http://localhost:5000/data_pegawai
+POST http://localhost:5000/data-pegawai
 Content-Type: application/json
 
 {
@@ -79,7 +79,7 @@ Content-Type: application/json
 
 
 ### Update Data Pegawai
-PATCH  http://localhost:5000/data_pegawai/2
+PATCH  http://localhost:5000/data-pegawai/2
 Content-Type: application/json
 
 {
@@ -95,7 +95,7 @@ Content-Type: application/json
 }
 
 ### Change Password Admin (All data pegawai)
-PATCH  http://localhost:5000/data_pegawai/2/change_password
+PATCH  http://localhost:5000/data-pegawai/2/change-password
 Content-Type: application/json
 
 {
@@ -104,7 +104,7 @@ Content-Type: application/json
 }
 
 ### Change Password Pegawai (Self)
-PATCH  http://localhost:5000/change_password
+PATCH  http://localhost:5000/change-password
 Content-Type: application/json
 
 {
@@ -113,19 +113,19 @@ Content-Type: application/json
 }
 
 ### Delete Data Pegawai
-DELETE   http://localhost:5000/data_pegawai/1
+DELETE   http://localhost:5000/data-pegawai/1
 
 
 /////// Data Jabatan //////
 
 ### Get All Data Jabatan
-GET  http://localhost:5000/data_jabatan
+GET  http://localhost:5000/data-jabatan
 
 ### Get Data Jabatan By ID
-GET  http://localhost:5000/data_jabatan/id/1
+GET  http://localhost:5000/data-jabatan/id/1
 
 ### Create Data Jabatan
-POST  http://localhost:5000/data_jabatan
+POST  http://localhost:5000/data-jabatan
 Content-Type: application/json
 
 {
@@ -136,7 +136,7 @@ Content-Type: application/json
 }
 
 ### UPDATE Data Jabatan
-PATCH   http://localhost:5000/data_jabatan/1
+PATCH   http://localhost:5000/data-jabatan/1
 Content-Type: application/json
 
 {
@@ -147,7 +147,7 @@ Content-Type: application/json
 }
 
 ### DELETE Data Jabatan
-DELETE    http://localhost:5000/data_jabatan/2
+DELETE    http://localhost:5000/data-jabatan/2
 
 
 
@@ -158,10 +158,10 @@ DELETE    http://localhost:5000/data_jabatan/2
 /////// Data Kehadiran //////
 
 ### Get All Data Kehadiran
-GET  http://localhost:5000/data_kehadiran
+GET  http://localhost:5000/data-kehadiran
 
 ### Create Data Kehadiran
-POST  http://localhost:5000/data_kehadiran
+POST  http://localhost:5000/data-kehadiran
 Content-Type: application/json
 
 {
@@ -175,7 +175,7 @@ Content-Type: application/json
 }
 
 ### UPDATE data kehadiran
-PATCH  http://localhost:5000/data_kehadiran/update/11
+PATCH  http://localhost:5000/data-kehadiran/update/11
 Content-Type: application/json
 
 {
@@ -185,16 +185,16 @@ Content-Type: application/json
 }
 
 ### DELETE Data Kehadiran
-DELETE http://localhost:5000/data_kehadiran/8
+DELETE http://localhost:5000/data-kehadiran/8
 
 
 /////// Data Potongan //////
 
 ### Get All Data Potongan Gaji
-GET  http://localhost:5000/data_potongan
+GET  http://localhost:5000/data-potongan
 
 ### Create Data Potongan
-POST  http://localhost:5000/data_potongan
+POST  http://localhost:5000/data-potongan
 Content-Type: application/json
 
 {
@@ -204,7 +204,7 @@ Content-Type: application/json
 }
 
 ### UPDATE data potongan
-PATCH  http://localhost:5000/data_potongan/update/3
+PATCH  http://localhost:5000/data-potongan/update/3
 Content-Type: application/json
 
 {
@@ -213,20 +213,26 @@ Content-Type: application/json
 }
 
 ### DELETE Data Potongan
-DELETE http://localhost:5000/data_potongan/3
+DELETE http://localhost:5000/data-potongan/3
 
 
 
 /////// Data Gaji //////
 
 ### get All Data Gaji Pegawai
-GET http://localhost:5000/data_gaji_pegawai
+GET http://localhost:5000/data-gaji
+
+### get Data Gaji Pegawai By ID
+GET http://localhost:5000/data-gaji/1
+
+### get Data Gaji Pegawai By Name
+GET http://localhost:5000/data-gaji/name/Aldi
 
 ### get All Data Gaji Pegawai By Month
-GET http://localhost:5000/data_gaji_pegawai/month/Juni
+GET http://localhost:5000/data-gaji/month/Juni
 
 ### get All Data Gaji Pegawai By Year
-GET http://localhost:5000/data_gaji_pegawai/year/2023
+GET http://localhost:5000/data-gaji/year/2023
 
 // NOTE: Data bulan & tahun (month & year) ditetapkan berdasarkan input data kehadiran pegawai.
 
@@ -264,10 +270,10 @@ GET http://localhost:5000/laporan/absensi/year/2021
 /////// Slip Gaji //////
 
 ### get Slip Gaji By Name
-GET http://localhost:5000/laporan/slip_gaji/name/caca
+GET http://localhost:5000/laporan/slip-gaji/name/caca
 
 ### get Slip Gaji By Month
-GET http://localhost:5000/laporan/slip_gaji/month/maret
+GET http://localhost:5000/laporan/slip-gaji/month/maret
 
 ### get Slip Gaji By Year
-GET http://localhost:5000/laporan/slip_gaji/year/2022
+GET http://localhost:5000/laporan/slip-gaji/year/2022

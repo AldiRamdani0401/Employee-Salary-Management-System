@@ -2,12 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const FormEditJabatan = () => {
+const FormDetailDataGaji = () => {
 
-    const [namaJabatan, setNamaJabatan] = useState('');
+    const [tahun, setTahun] = useState('');
+    const [bulan, setBulan] = useState('');
+    const [nik, setNik] = useState('');
+    const [namaPegawai, setNamaPegawai] = useState('');
+    const [jabatan, setJabatan] = useState('');
     const [gajiPokok, setGajiPokok] = useState('');
     const [tjTransport, setTjTransport] = useState('');
     const [uangMakan, setUangMakan] = useState('');
+    const [potongan, setPotongan] = useState('');
+    const [total, setTotal] = useState('');
     const [msg, setMsg] = useState('');
     const navigate = useNavigate();
     const { id } = useParams();
@@ -15,11 +21,17 @@ const FormEditJabatan = () => {
     useEffect(() => {
         const getUserById = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/data-jabatan/${id}`);
-                setNamaJabatan(response.data.nama_jabatan);
+                const response = await axios.get(`http://localhost:5000/data-gaji/${id}`);
+                setTahun(response.data.tahun);
+                setBulan(response.data.bulan);
+                setNik(response.data.nik);
+                setNamaPegawai(response.data.nama_pegawai);
+                setJabatan(response.data.jabatan);
                 setGajiPokok(response.data.gaji_pokok);
                 setTjTransport(response.data.tj_transport);
                 setUangMakan(response.data.uang_makan);
+                setPotongan(response.data.potongan);
+                setTotal(response.data.total);
             } catch (error) {
                 if (error.response){
                     setMsg(error.response.data.msg);
@@ -32,13 +44,19 @@ const FormEditJabatan = () => {
     const updateData = async (e) => {
         e.preventDefault();
         try {
-            await axios.patch(`http://localhost:5000/data-jabatan/${id}`, {
-                nama_jabatan        : namaJabatan,
+            await axios.patch(`http://localhost:5000/data-gaji/${id}`, {
+                tahun               : tahun,
+                bulan               : bulan,
+                nik                 : nik,
+                nama_pegawai        : namaPegawai,
+                jabatan_pegawai     : jabatan,
                 gaji_pokok          : gajiPokok,
                 tj_transport        : tjTransport,
-                uang_makan          : uangMakan
+                uang_makan          : uangMakan,
+                potongan            : potongan,
+                total               : total,
             });
-            navigate('/data-jabatan');
+            navigate('/data-gaji');
         } catch (error) {
             setMsg(error.response.data.msg);
         }
@@ -47,7 +65,7 @@ const FormEditJabatan = () => {
   return (
     <section className='mt-2 mr-5 ml-5'>
         <div className='header p-5 has-background-info'>
-            <h2 className=" has-text-weight-bold has-text-white">Edit Data Jabatan</h2>
+            <h2 className=" has-text-weight-bold has-text-white">Detail Gaji Pegawai</h2>
         </div>
         <div className="card is-shadowless p-2">
             <card className="content">
@@ -60,8 +78,8 @@ const FormEditJabatan = () => {
                                     <label className="label">Nama Jabatan</label>
                                     <div className="control">
                                         <input type="text" className="input"
-                                        value={namaJabatan}
-                                        onChange={(e) => setNamaJabatan(e.target.value)}
+                                        value={namaPegawai}
+                                        onChange={(e) => setJabatan(e.target.value)}
                                         required='true'
                                         placeholder='nama jabatan'/>
                                     </div>
@@ -117,7 +135,7 @@ const FormEditJabatan = () => {
                             <div className="column is-12">
                                 <div className="field">
                                         <div className="control">
-                                            <Link to={'/data-jabatan'} type='button' className="button is-link">Kembali</Link>
+                                            <Link to={'/data-gaji'} type='button' className="button is-link">Kembali</Link>
                                         </div>
                                 </div>
                             </div>
@@ -130,4 +148,4 @@ const FormEditJabatan = () => {
   )
 }
 
-export default FormEditJabatan
+export default FormDetailDataGaji

@@ -12,13 +12,13 @@ const FormAddDataPotongan = () => {
     const saveDataPotongan = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/data_potongan", {
+            await axios.post("http://localhost:5000/data-potongan", {
                 potongan        : potongan,
                 jml_potongan    : jmlPotongan
             });
             setMsg("Berhasil Menambahkan Data Potongan");
             setTimeout(() => {
-                navigate("/data_potongan");
+                navigate("/data-potongan");
             }, 2000)
         } catch (error) {
             if (error.message){
@@ -74,7 +74,7 @@ const FormAddDataPotongan = () => {
                             <div className="column is-12">
                                 <div className="field">
                                         <div className="control">
-                                            <Link to={'/data_potongan'} type='button' className="button is-link">Kembali</Link>
+                                            <Link to={'/data-potongan'} type='button' className="button is-link">Kembali</Link>
                                         </div>
                                 </div>
                             </div>

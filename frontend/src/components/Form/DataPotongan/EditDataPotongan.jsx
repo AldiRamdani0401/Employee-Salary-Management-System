@@ -13,7 +13,7 @@ const FormAddDataPotongan = () => {
     useEffect(() => {
         const getDataById = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/data_potongan/id/${id}`);
+                const response = await axios.get(`http://localhost:5000/data-potongan/${id}`);
                 setPotongan(response.data.potongan);
                 setJmlPotongan(response.data.jml_potongan);
             } catch (error) {
@@ -28,13 +28,13 @@ const FormAddDataPotongan = () => {
     const updateData = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.patch(`http://localhost:5000/data_potongan/update/${id}`, {
+            axios.patch(`http://localhost:5000/data-potongan/update/${id}`, {
                 potongan        : potongan,
                 jml_potongan    : jmlPotongan
             });
             setMsg("Data Updated !")
             setTimeout(() => {
-                navigate("/data_potongan");
+                navigate("/data-potongan");
             }, 2000)
         } catch (error) {
             if (error.response){
@@ -90,7 +90,7 @@ const FormAddDataPotongan = () => {
                             <div className="column is-12">
                                 <div className="field">
                                         <div className="control">
-                                            <Link to={'/data_potongan'} type='button' className="button is-link">Kembali</Link>
+                                            <Link to={'/data-potongan'} type='button' className="button is-link">Kembali</Link>
                                         </div>
                                 </div>
                             </div>

@@ -8,7 +8,7 @@ const DataJabatanList = () => {
     const [dataJabatan, setDataJabatan] = useState([]);
 
     const getDataJabatan = async () => {
-        const response = await axios.get("http://localhost:5000/data_jabatan");
+        const response = await axios.get("http://localhost:5000/data-jabatan");
         setDataJabatan(response.data);
     }
 
@@ -17,7 +17,7 @@ const DataJabatanList = () => {
     }, []);
 
     const deleteDataJabatan = async (id) => {
-        await axios.delete(`http://localhost:5000/data_jabatan/${id}`);
+        await axios.delete(`http://localhost:5000/data-jabatan/${id}`);
         getDataJabatan();
     }
 
@@ -26,7 +26,7 @@ const DataJabatanList = () => {
         <div className='container'>
         <div className='header mt-2 p-5 has-background-link is-flex is-justify-content-space-between'>
             <h1 className="title p-3 has-text-white"><IoMedalOutline size='30px'/>  Data Jabatan</h1>
-                <Link to="/data_jabatan/add" className="button is-success mt-4">
+                <Link to="/data-jabatan/add" className="button is-success mt-4">
                 Tambah Data
                 </Link>
         </div>
@@ -50,7 +50,7 @@ const DataJabatanList = () => {
                     <td>{jabatan.tj_transport}</td>
                     <td>{jabatan.uang_makan}</td>
                     <td>
-                        <Link to={`/data_kehadiran/edit/${jabatan.id}`}
+                        <Link to={`/data-jabatan/edit/${jabatan.id}`}
                         className='button is-small is-info'>Edit</Link>
                         <button onClick={() => deleteDataJabatan(jabatan.id)}
                         className='button is-small is-danger ml-2'>Delete</button>

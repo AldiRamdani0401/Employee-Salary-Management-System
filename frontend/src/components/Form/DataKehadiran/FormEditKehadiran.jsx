@@ -16,9 +16,9 @@ const FormEditKehadiran = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        const getUserById = async () => {
+        const getDataById = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/data_kehadiran/id/${id}`);
+                const response = await axios.get(`http://localhost:5000/data-kehadiran/${id}`);
                 setNamaPegawai(response.data.nama_pegawai);
                 setNik(response.data.nik);
                 setNamaJabatan(response.data.nama_jabatan);
@@ -31,13 +31,13 @@ const FormEditKehadiran = () => {
                 }
             }
         }
-        getUserById();
+        getDataById();
     }, [id]);
 
     const updateData = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.patch(`http://localhost:5000/data_kehadiran/update/${id}`,{
+            const response = await axios.patch(`http://localhost:5000/data-kehadiran/${id}`,{
                 nik             : nik,
                 nama_pegawai    : namaPegawai,
                 nama_jabatan    : namaJabatan,
@@ -46,7 +46,7 @@ const FormEditKehadiran = () => {
                 alpha           : alpha
             });
             setMsg(response.data.msg);
-            navigate("/data_kehadiran");
+            navigate("/data-kehadiran");
         } catch (error) {
             if (error.response){
                 setMsg(error.response.data.msg);
@@ -151,7 +151,7 @@ const FormEditKehadiran = () => {
                             <div className="column is-12">
                                 <div className="field">
                                         <div className="control">
-                                            <Link to={'/data_kehadiran'} type='button' className="button is-link">Kembali</Link>
+                                            <Link to={'/data-kehadiran'} type='button' className="button is-link">Kembali</Link>
                                         </div>
                                 </div>
                             </div>

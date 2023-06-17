@@ -3,7 +3,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 import PreviewDataPegawai from './Preview/PreviewDataPegawai'
-import PreviewDataJabatan from './Preview/PriviewDataJabatan'
+import PreviewDataJabatan from './Preview/PreviewDataJabatan'
+import PreviewDataKehadiran from './Preview/PreviewDataKehadiran';
 
 const FormAddKehadiran = () => {
 
@@ -19,7 +20,7 @@ const FormAddKehadiran = () => {
     const saveDataJabatan = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/data_kehadiran",  {
+            await axios.post("http://localhost:5000/data-kehadiran",  {
                 nik             : nik,
                 nama_pegawai    : namaPegawai,
                 nama_jabatan    : namaJabatan,
@@ -27,7 +28,7 @@ const FormAddKehadiran = () => {
                 sakit           : sakit,
                 alpha           : alpha
             });
-            navigate("/data_kehadiran");
+            navigate("/data-kehadiran");
         } catch (error) {
             if (error.response){
                 setMsg(error.response.data.msg);
@@ -124,7 +125,7 @@ const FormAddKehadiran = () => {
                         <div className="columns p-5">
                             <div className="column">
                                 <div className="field">
-                                    <div className="control notification is-info">
+                                    <div className="control">
                                         <button type='submit' className="button is-success">Save</button>
                                     </div>
                                 </div>
@@ -132,7 +133,7 @@ const FormAddKehadiran = () => {
                             <div className="column is-12">
                                 <div className="field">
                                         <div className="control">
-                                            <Link to={'/data_kehadiran'} type='button' className="button is-link">Kembali</Link>
+                                            <Link to={'/data-kehadiran'} type='button' className="button is-link">Kembali</Link>
                                         </div>
                                 </div>
                             </div>
@@ -147,6 +148,9 @@ const FormAddKehadiran = () => {
             </div>
             <div className="column">
                 <PreviewDataJabatan/>
+            </div>
+            <div className="column">
+                <PreviewDataKehadiran/>
             </div>
         </div>
     </section>

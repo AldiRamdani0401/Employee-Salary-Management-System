@@ -18,7 +18,7 @@ const FormEditPegawai = () => {
     useEffect(() => {
         const getUserById = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/data_pegawai/id/${id}`);
+                const response = await axios.get(`http://localhost:5000/data-pegawai/${id}`);
                 setNik(response.data.nik);
                 setNamaPegawai(response.data.nama_pegawai);
                 setUsername(response.data.username);
@@ -27,7 +27,6 @@ const FormEditPegawai = () => {
                 setStatus(response.data.status);
                 setHakAkses(response.data.hak_akses);
 
-                console.log(response);
             } catch (error) {
                 if (error.response){
                     setMsg(error.response.data.msg);
@@ -40,7 +39,7 @@ const FormEditPegawai = () => {
     const updateUser = async (e) => {
         e.preventDefault();
         try {
-            await axios.patch(`http://localhost:5000/data_pegawai/${id}`, {
+            const response = await axios.patch(`http://localhost:5000/data-pegawai/${id}`, {
                 nik             : nik,
                 nama_pegawai    : namaPegawai,
                 username        : username,
@@ -49,7 +48,10 @@ const FormEditPegawai = () => {
                 status          : status,
                 hak_akses       : hakAkses,
             });
-            navigate('/data_pegawai');
+            setMsg(response.data.msg)
+            setTimeout(() => {
+                navigate('/data-pegawai');
+            }, 3000)
         } catch (error) {
             setMsg(error.response.data.msg);
         }
@@ -165,7 +167,7 @@ const FormEditPegawai = () => {
                             <div className="column is-12">
                                 <div className="field">
                                         <div className="control">
-                                            <Link to={'/data_pegawai'} type='button' className="button is-link">Kembali</Link>
+                                            <Link to={'/data-pegawai'} type='button' className="button is-link">Kembali</Link>
                                         </div>
                                 </div>
                             </div>

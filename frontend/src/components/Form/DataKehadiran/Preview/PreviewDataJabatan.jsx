@@ -6,7 +6,7 @@ const PreviewDataJabatan = () => {
     const [dataJabatan, setDataJabatan] = useState([]);
 
     const getDataJabatan = async () => {
-        const response = await axios.get("http://localhost:5000/data_jabatan");
+        const response = await axios.get("http://localhost:5000/data-jabatan");
         setDataJabatan(response.data);
     }
 

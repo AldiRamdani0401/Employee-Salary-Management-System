@@ -47,12 +47,12 @@ const FormAddPegawai = () => {
         formData.append("hak_akses", hak_akses);
 
         try {
-          await axios.post("http://localhost:5000/data_pegawai", formData, {
+          await axios.post("http://localhost:5000/data-pegawai", formData, {
             headers: {
               "Content-type": "multipart/form-data"
             }
           });
-          navigate("/data_pegawai");
+          navigate("/data-pegawai");
         } catch (error) {
           if (error.response) {
             setMsg(error.response.data.msg);
@@ -252,7 +252,7 @@ const FormAddPegawai = () => {
                             <div className="column is-12">
                                 <div className="field">
                                         <div className="control">
-                                            <Link to={'/data_pegawai'} type='button' className="button is-link">Kembali</Link>
+                                            <Link to={'/data-pegawai'} type='button' className="button is-link">Kembali</Link>
                                         </div>
                                 </div>
                             </div>

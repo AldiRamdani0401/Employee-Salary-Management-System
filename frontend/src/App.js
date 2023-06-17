@@ -18,6 +18,9 @@ import DataPotongan from "./pages/DataPotongan/DataPotongan.jsx";
 import AddDataPotongan from "./components/Form/DataPotongan/AddDataPotongan.jsx";
 import EditDataPotongan from "./components/Form/DataPotongan/EditDataPotongan.jsx";
 
+import DataGaji from "./pages/DataGaji/DataGaji.jsx";
+import DetailDataGaji from "./components/SideBar/DataGajiList/DetailDataGaji/DetailDataGaji.jsx"
+
 function App(){
   return (
     <div>
@@ -25,24 +28,29 @@ function App(){
         <Routes>
           <Route path="/" element={<Login/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
-          <Route path="/data_pegawai" element={<DataPegawai/>}/>
-          <Route path="/data_pegawai/add" element={<AddPegawai/>}/>
-          <Route path="/data_pegawai/edit/:id" element={<EditPegawai/>}/>
+          <Route path="/data-pegawai" element={<DataPegawai/>}/>
+          <Route path="/data-pegawai/add" element={<AddPegawai/>}/>
+          <Route path="/data-pegawai/edit/:id" element={<EditPegawai/>}/>
         </Routes>
         <Routes>
-          <Route path="/data_jabatan" element={<DataJabatan/>}/>
-          <Route path="/data_jabatan/add" element={<AddJabatan/>}/>
-          <Route path="/data_jabatan/edit/:id" element={<EditJabatan/>}/>
+          <Route path="/data-jabatan" element={<DataJabatan/>}/>
+          <Route path="/data-jabatan/add" element={<AddJabatan/>}/>
+          <Route path="/data-jabatan/edit/:id" element={<EditJabatan/>}/>
         </Routes>
         <Routes>
-          <Route path="/data_kehadiran" element={<DataKehadiran/>}/>
-          <Route path="/data_kehadiran/add" element={<AddKehadiran/>}/>
-          <Route path="/data_kehadiran/edit/:id" element={<EditKehadiran/>}/>
+          <Route path="/data-kehadiran" element={<DataKehadiran/>}/>
+          <Route path="/data-kehadiran/add" element={<AddKehadiran/>}/>
+          <Route path="/data-kehadiran/edit/:id" element={<EditKehadiran/>}/>
         </Routes>
         <Routes>
-          <Route path="/data_potongan" element={<DataPotongan/>}/>
-          <Route path="/data_potongan/add" element={<AddDataPotongan/>}/>
-          <Route path="/data_potongan/edit/:id" element={<EditDataPotongan/>}/>
+          <Route path="/data-potongan" element={<DataPotongan/>}/>
+          <Route path="/data-potongan/add" element={<AddDataPotongan/>}/>
+          <Route path="/data-potongan/edit/:id" element={<EditDataPotongan/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/data-gaji" element={<DataGaji/>}/>
+          <Route path="/data-gaji/add" element={<AddDataPotongan/>}/>
+          <Route path="/data-gaji/name/:name" element={<DetailDataGaji/>}/>
         </Routes>
       </Router>
     </div>

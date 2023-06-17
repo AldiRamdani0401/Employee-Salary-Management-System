@@ -32,8 +32,8 @@ const SideBar = () => {
                         Master Data
                         </p>
                         <ul className="menu-list m-3">
-                        <li><NavLink to={"/data_pegawai"}><IoPerson/> Data Pegawai</NavLink></li>
-                        <li><NavLink to={"/data_jabatan"}><IoMedalOutline/> Data Jabatan</NavLink></li>
+                        <li><NavLink to={"/data-pegawai"}><IoPerson/> Data Pegawai</NavLink></li>
+                        <li><NavLink to={"/data-jabatan"}><IoMedalOutline/> Data Jabatan</NavLink></li>
                         </ul>
                     </div>
                 )}
@@ -43,9 +43,9 @@ const SideBar = () => {
                         Transaksi
                         </p>
                         <ul className="menu-list m-3">
-                        <li><NavLink to={"/data_kehadiran"}><IoCalendarClearSharp/> Data Kehadiran</NavLink></li>
-                        <li><NavLink to={"/data_potongan"}><IoCut/> Data Potongan</NavLink></li>
-                        <li><NavLink to={"/data_jabatan"}><IoCashOutline/> Data Gaji</NavLink></li>
+                        <li><NavLink to={"/data-kehadiran"}><IoCalendarClearSharp/> Data Kehadiran</NavLink></li>
+                        <li><NavLink to={"/data-potongan"}><IoCut/> Data Potongan</NavLink></li>
+                        <li><NavLink to={"/data-gaji"}><IoCashOutline/> Data Gaji</NavLink></li>
                         </ul>
                     </div>
                 )}
@@ -55,9 +55,9 @@ const SideBar = () => {
                         Laporan
                         </p>
                         <ul className="menu-list m-3">
-                        <li><NavLink to={"/data_pegawai"}><IoPerson/>Laporan Gaji</NavLink></li>
-                        <li><NavLink to={"/data_jabatan"}><IoMedalOutline/>Laporan Absensi</NavLink></li>
-                        <li><NavLink to={"/data_jabatan"}><IoMedalOutline/>Slip Gaji</NavLink></li>
+                        <li><NavLink to={"/data-pegawai"}><IoPerson/>Laporan Gaji</NavLink></li>
+                        <li><NavLink to={"/data-jabatan"}><IoMedalOutline/>Laporan Absensi</NavLink></li>
+                        <li><NavLink to={"/data-jabatan"}><IoMedalOutline/>Slip Gaji</NavLink></li>
                         </ul>
                     </div>
                 )}
