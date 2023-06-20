@@ -5,6 +5,7 @@ import Login from "./components/Login/Login.jsx";
 import DataPegawai from "./pages/DataPegawai/DataPegawai.jsx";
 import AddPegawai from "./pages/DataPegawai/Form/AddPegawai.jsx";
 import EditPegawai from "./pages/DataPegawai/Form/EditPegawai.jsx";
+import DetailDataPegawai from "./pages/DataPegawai/DetailDataPegawai/DetailDataPegawai.jsx";
 
 import DataJabatan from "./pages/DataJabatan/DataJabatan.jsx";
 import AddJabatan from "./pages/DataJabatan/Form/AddJabatan";
@@ -28,6 +29,7 @@ function App(){
         <Routes>
           <Route path="/" element={<Login/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/data-pegawai/detail/:id" element={<DetailDataPegawai/>}/>
           <Route path="/data-pegawai" element={<DataPegawai/>}/>
           <Route path="/data-pegawai/add" element={<AddPegawai/>}/>
           <Route path="/data-pegawai/edit/:id" element={<EditPegawai/>}/>

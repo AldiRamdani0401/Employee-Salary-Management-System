@@ -72,7 +72,14 @@ const DataPegawaiList = () => {
                 <tr key={pegawai.id}>
                   <td>{index + 1}</td>
                   <td>{pegawai.nik}</td>
-                  <td>{pegawai.nama_pegawai}</td>
+                  <td>
+                    <Link
+                      to={`/data-pegawai/detail/${pegawai.id}`}
+                      className="has-text-link"
+                    >
+                      {pegawai.nama_pegawai}
+                    </Link>
+                  </td>
                   <td>{pegawai.jabatan}</td>
                   <td>{pegawai.hak_akses}</td>
                   <td>

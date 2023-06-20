@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react'
+import React, {useEffect} from 'react'
 import Layout from '../../Layout/Layout'
-import FormAddPegawai from '../../../components/SideBar/DataPegawaiList/Form/DataPegawai/FormAddPegawai'
+import DetailDataPegawai from '../../../components/SideBar/DataPegawaiList/DetailDataPegawai/DetailDataPegawai';
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getMe } from '../../../features/authSlice'
 
-const AddPegawai = () => {
+const AddJabatan = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {isError, user} = useSelector(((state) => state.auth));
+  const {isError} = useSelector(((state) => state.auth));
 
   useEffect(() => {
     dispatch(getMe());
@@ -19,16 +19,13 @@ const AddPegawai = () => {
     if(isError){
       navigate("/");
     }
-    if(user && user.hak_akses !== "admin"){
-        navigate("/dashboard");
-    }
-  }, [isError, user, navigate]);
+  }, [isError, navigate]);
 
   return (
     <Layout>
-        <FormAddPegawai/>
+        <DetailDataPegawai/>
     </Layout>
   )
 }
 
-export default AddPegawai
+export default AddJabatan

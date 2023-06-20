@@ -60,7 +60,7 @@ const FormEditPegawai = () => {
   return (
     <section className='mt-2 mr-5 ml-5'>
         <div className='header p-5 has-background-info'>
-            <h2 className=" has-text-weight-bold has-text-white">Tambah Data Pegawai</h2>
+            <h2 className=" has-text-weight-bold has-text-white">Tambah Edit Pegawai</h2>
         </div>
         <div className="card is-shadowless p-3">
             <card className="content">

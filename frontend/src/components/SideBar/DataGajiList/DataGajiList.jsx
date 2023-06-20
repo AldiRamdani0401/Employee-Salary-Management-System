@@ -14,19 +14,11 @@ const DataGajiList = () => {
     getDataGaji();
   }, []);
 
-  const deleteDataKehadiran = async (id) => {
-    await axios.delete(`http://localhost:5000/data-gaji/${id}`);
-    getDataGaji();
-  };
-
   return (
     <section className="section">
       <div className="container">
         <div className="header mt-2 p-5 has-background-link is-flex is-justify-content-space-between">
           <h1 className="title p-3 has-text-white">Data Gaji</h1>
-          <Link to="/data_kehadiran/add" className="button is-success mt-4">
-            Tambah Data
-          </Link>
         </div>
         <table className="table is-striped is-fullwidth">
           <thead>
@@ -68,12 +60,6 @@ const DataGajiList = () => {
                     >
                       Lihat
                     </Link>
-                    <button
-                      onClick={() => deleteDataKehadiran(data.id)}
-                      className="button is-small is-danger ml-2"
-                    >
-                      Delete
-                    </button>
                   </td>
                 </tr>
               )

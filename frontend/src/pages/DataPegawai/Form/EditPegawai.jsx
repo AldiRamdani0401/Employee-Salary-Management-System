@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import Layout from '../../Layout/Layout'
-import FormEditPegawai from '../../../components/Form/DataPegawai/FormEditPegawai'
+import FormEditPegawai from '../../../components/SideBar/DataPegawaiList/Form/DataPegawai/FormEditPegawai'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getMe } from '../../../features/authSlice'
