@@ -71,7 +71,7 @@ const DetailDataPegawai = () => {
                   <table className="table is-bordered is-striped is-narrow is-hoverable" style={{ width: "200px", height: "200px" }} >
                     <tbody>
                       <tr>
-                        <th>Photo Pegawai</th>
+                        <th className="has-text-centered">Photo Pegawai</th>
                       </tr>
                       <tr>
                         <td colSpan="2">
