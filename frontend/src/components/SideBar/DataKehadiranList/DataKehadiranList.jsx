@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-import { IoCalendarClearSharp, IoTimeSharp } from "react-icons/io5";
+import { IoCalendarClearSharp } from "react-icons/io5";
 
 const DataKehadiranList = () => {
   const [dataKehadiran, setDataKehadiran] = useState([]);
@@ -105,6 +105,7 @@ const DataKehadiranList = () => {
               <th>Bulan</th>
               <th>Nama Pegawai</th>
               <th>Nama Jabatan</th>
+              <th>Jenis Kelamin</th>
               <th>Hadir</th>
               <th>Sakit</th>
               <th>Alpha</th>
@@ -117,8 +118,16 @@ const DataKehadiranList = () => {
                 <td>{index + 1}</td>
                 <td>{kehadiran.tahun}</td>
                 <td>{kehadiran.bulan}</td>
-                <td>{kehadiran.nama_pegawai}</td>
+                <td>
+                  <Link
+                    to={`/data-pegawai/detail/name/${kehadiran.nama_pegawai}`}
+                    className="has-text-link"
+                  >
+                    {kehadiran.nama_pegawai}
+                  </Link>
+                </td>{" "}
                 <td>{kehadiran.jabatan_pegawai}</td>
+                <td>{kehadiran.jenis_kelamin}</td>
                 <td>{kehadiran.hadir}</td>
                 <td>{kehadiran.sakit}</td>
                 <td>{kehadiran.alpha}</td>

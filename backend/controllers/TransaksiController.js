@@ -34,6 +34,7 @@ export const viewDataKehadiran = async (req, res) => {
       const nik = kehadiran.nik;
       const nama_pegawai = kehadiran.nama_pegawai;
       const jabatan_pegawai = kehadiran.nama_jabatan;
+      const jenis_kelamin = kehadiran.jenis_kelamin;
       const hadir = kehadiran.hadir;
       const sakit = kehadiran.sakit;
       const alpha = kehadiran.alpha;
@@ -45,6 +46,7 @@ export const viewDataKehadiran = async (req, res) => {
         nik,
         nama_pegawai,
         jabatan_pegawai,
+        jenis_kelamin,
         hadir,
         sakit,
         alpha,

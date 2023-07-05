@@ -30,6 +30,7 @@ function App(){
           <Route path="/" element={<Login/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/data-pegawai/detail/:id" element={<DetailDataPegawai/>}/>
+          <Route path="/data-pegawai/detail/name/:nama" element={<DetailDataPegawai/>}/>
           <Route path="/data-pegawai" element={<DataPegawai/>}/>
           <Route path="/data-pegawai/add" element={<AddPegawai/>}/>
           <Route path="/data-pegawai/edit/:id" element={<EditPegawai/>}/>

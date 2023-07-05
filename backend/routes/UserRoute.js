@@ -80,7 +80,7 @@ const router = express.Router();
 router.get('/data-pegawai', verifyUser, adminOnly, getDataPegawai);
 router.get('/data-pegawai/:id', verifyUser, adminOnly, getDataPegawaiByID);
 router.get('/data-pegawai/nik/:nik', verifyUser, adminOnly, getDataPegawaiByNik);
-router.get('/data-pegawai/name/:name', verifyUser, adminOnly, getDataPegawaiByName);
+router.get('/data-pegawai/name/:name', verifyUser, getDataPegawaiByName);
 router.post('/data-pegawai', createDataPegawai);
 router.patch('/data-pegawai/:id', verifyUser, adminOnly, updateDataPegawai);
 router.delete('/data-pegawai/:id', verifyUser, adminOnly, deleteDataPegawai);

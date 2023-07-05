@@ -5,6 +5,7 @@ import axios from "axios";
 const DetailDataPegawai = () => {
   const [dataPegawai, setDataPegawai] = useState(null);
   const { id } = useParams();
+  const { nama } = useParams();
 
   useEffect(() => {
     const getDataPegawaiById = async () => {
@@ -20,6 +21,21 @@ const DetailDataPegawai = () => {
     };
     getDataPegawaiById();
   }, [id]);
+
+  useEffect(() => {
+    const getDataPegawaiByName = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:5000/data-pegawai/name/${nama}`
+        );
+        const data = response.data;
+        setDataPegawai(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getDataPegawaiByName();
+  }, [nama]);
 
   return (
     <section className="mt-2 mr-5 ml-5">

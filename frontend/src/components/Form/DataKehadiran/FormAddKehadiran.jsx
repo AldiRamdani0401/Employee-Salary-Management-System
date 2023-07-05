@@ -1,160 +1,170 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
-
-import PreviewDataPegawai from './Preview/PreviewDataPegawai'
-import PreviewDataJabatan from './Preview/PreviewDataJabatan'
-import PreviewDataKehadiran from './Preview/PreviewDataKehadiran';
+import React, { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
+import { IoCalendarClearSharp } from "react-icons/io5";
 
 const FormAddKehadiran = () => {
+  const [dataPegawai, setDataPegawai] = useState([]);
+  const [dataKehadiran, setDataKehadiran] = useState([]);
 
-    const [nik, setNik] = useState("");
-    const [namaPegawai, setNamaPegawai] = useState("");
-    const [namaJabatan, setNamaJabatan] = useState("");
-    const [hadir, setHadir] = useState("");
-    const [sakit, setSakit] = useState("");
-    const [alpha, setAlpha] = useState("");
-    const [msg, setMsg] = useState("");
-    const navigate = useNavigate();
+  const getDataPegawai = async () => {
+    const response = await axios.get("http://localhost:5000/data-pegawai");
+    setDataPegawai(response.data);
+  };
 
-    const saveDataJabatan = async (e) => {
-        e.preventDefault();
-        try {
-            await axios.post("http://localhost:5000/data-kehadiran",  {
-                nik             : nik,
-                nama_pegawai    : namaPegawai,
-                nama_jabatan    : namaJabatan,
-                hadir           : hadir,
-                sakit           : sakit,
-                alpha           : alpha
-            });
-            navigate("/data-kehadiran");
-        } catch (error) {
-            if (error.response){
-                setMsg(error.response.data.msg);
-            }
-        }
+  const getDataKehadiran = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/data-kehadiran");
+      setDataKehadiran(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
+  };
+
+  useEffect(() => {
+    getDataPegawai();
+    getDataKehadiran();
+  }, []);
+
+  const [hadir, setHadir] = useState([]);
+  const [sakit, setSakit] = useState([]);
+  const [alpha, setAlpha] = useState([]);
+
+  const handleHadir = (index, value) => {
+    const updateHadir = [...hadir];
+    updateHadir[index] = value;
+    setHadir(updateHadir);
+  };
+
+  const handleSakit = (index, value) => {
+    const updateSakit = [...sakit];
+    updateSakit[index] = value;
+    setSakit(updateSakit);
+  };
+
+  const handleAlpha = (index, value) => {
+    const updateAlpha = [...alpha];
+    updateAlpha[index] = value;
+    setAlpha(updateAlpha);
+  };
+
+  const navigate = useNavigate();
+
+  const saveDataKehadiran = async (e) => {
+    e.preventDefault();
+
+    try {
+      for (let i = 0; i < dataPegawai.length; i++) {
+        const isNamaAda = dataKehadiran.some(
+          (kehadiran) => kehadiran.nama_pegawai === dataPegawai[i].nama_pegawai
+        );
+
+        if (!isNamaAda) {
+          await axios.post("http://localhost:5000/data-kehadiran", {
+            nik: dataPegawai[i].nik,
+            nama_pegawai: dataPegawai[i].nama_pegawai,
+            nama_jabatan: dataPegawai[i].jabatan,
+            jenis_kelamin: dataPegawai[i].jenis_kelamin,
+            hadir: hadir[i] || 0,
+            sakit: sakit[i] || 0,
+            alpha: alpha[i] || 0,
+          });
+          navigate("/data-kehadiran");
+        }
+      }
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.msg);
+      }
+    }
+  };
+
 
   return (
-    <section className='mt-2 mr-5 ml-5'>
-        <div className='header p-5 has-background-info'>
-            <h2 className=" has-text-weight-bold has-text-white">Tambah Data Kehadiran</h2>
+    <section className="section">
+      <div className="container">
+        <div className="header mt-2 p-5 has-background-link is-flex is-justify-content-space-between">
+          <h1 className="title p-3 has-text-white">
+            <IoCalendarClearSharp /> Data Kehadiran
+          </h1>
+          <Link to="/data-kehadiran" className="button is-success mt-4">
+            Kembali
+          </Link>
         </div>
-        <div className="card is-shadowless p-2">
-            <card className="content">
-                <div className="content">
-                    <form onSubmit={saveDataJabatan}>
-                        <p className='has-text-centered'>{msg}</p>
-                        <div className="columns">
-                            <div className="column">
-                                <div className="field">
-                                    <label className="label">Nama Pegawai</label>
-                                    <div className="control">
-                                        <input type="text" className="input"
-                                        value={namaPegawai}
-                                        onChange={(e) => setNamaPegawai(e.target.value)}
-                                        required='true'
-                                        placeholder='nama pegawai'/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="column">
-                                <div className="field">
-                                    <label className="label">NIK</label>
-                                    <div className="control">
-                                        <input type="text" className="input"
-                                        value={nik}
-                                        onChange={(e) => setNik(e.target.value)}
-                                        required='true'
-                                        placeholder='nik pegawai'/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="column">
-                                <div className="field">
-                                    <label className="label">Nama Jabatan</label>
-                                    <div className="control">
-                                        <input type="text" className="input"
-                                        value={namaJabatan}
-                                        onChange={(e) => setNamaJabatan(e.target.value)}
-                                        required='true'
-                                        placeholder='jabatan pegawai'/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="columns">
-                            <div className="column">
-                                <div className="field">
-                                    <label className="label">hadir</label>
-                                    <div className="control">
-                                        <input type="text" className="input"
-                                        value={hadir}
-                                        onChange={(e) => setHadir(e.target.value)}
-                                        required='true'
-                                        placeholder='hadir pegawai'/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="column">
-                                <div className="field">
-                                    <label className="label">Sakit</label>
-                                    <div className="control">
-                                        <input type="text" className="input"
-                                        value={sakit}
-                                        onChange={(e) => setSakit(e.target.value)}
-                                        required='true'
-                                        placeholder='sakit pegawai'/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="column">
-                                <div className="field">
-                                    <label className="label">Alpha</label>
-                                    <div className="control">
-                                        <input type="text" className="input"
-                                        value={alpha}
-                                        onChange={(e) => setAlpha(e.target.value)}
-                                        required='true'
-                                        placeholder='sakit pegawai'/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="columns p-5">
-                            <div className="column">
-                                <div className="field">
-                                    <div className="control">
-                                        <button type='submit' className="button is-success">Save</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="column is-12">
-                                <div className="field">
-                                        <div className="control">
-                                            <Link to={'/data-kehadiran'} type='button' className="button is-link">Kembali</Link>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </card>
-        </div>
-        <div className="columns">
-            <div className="column">
-                <PreviewDataPegawai/>
-            </div>
-            <div className="column">
-                <PreviewDataJabatan/>
-            </div>
-            <div className="column">
-                <PreviewDataKehadiran/>
-            </div>
-        </div>
-    </section>
-  )
-}
+        <form onSubmit={saveDataKehadiran}>
+          <table className="table is-striped is-fullwidth">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>NIK</th>
+                <th>Nama Pegawai</th>
+                <th>Nama Jabatan</th>
+                <th>Jenis Kelamin</th>
+                <th>Hadir</th>
+                <th>Sakit</th>
+                <th>Alpha</th>
+              </tr>
+            </thead>
+            <tbody>
+              {dataPegawai.map((data, index) => {
+                const isNamaAda = dataKehadiran.some(
+                  (kehadiran) => kehadiran.nama_pegawai === data.nama_pegawai
+                );
 
-export default FormAddKehadiran
+                if (isNamaAda) {
+                  return null; // Jika nama sudah ada, lewati penampilan data pegawai
+                }
+
+                return (
+                  <tr key={data.id}>
+                    <td>{index + 1}</td>
+                    <td>{data.nik}</td>
+                    <td>
+                      <Link
+                        to={`/data-pegawai/detail/${data.id}`}
+                        className="has-text-link"
+                      >
+                        {data.nama_pegawai}
+                      </Link>
+                    </td>
+                    <td>{data.jabatan}</td>
+                    <td>{data.jenis_kelamin}</td>
+                    <td>
+                      <input
+                        type="number"
+                        placeholder="0"
+                        value={hadir[index] || ""}
+                        onChange={(e) => handleHadir(index, e.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        placeholder="0"
+                        value={sakit[index] || ""}
+                        onChange={(e) => handleSakit(index, e.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        placeholder="0"
+                        value={alpha[index] || ""}
+                        onChange={(e) => handleAlpha(index, e.target.value)}
+                      />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          <button type="submit" className="button is-success">
+            Simpan
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+};
+
+export default FormAddKehadiran;
