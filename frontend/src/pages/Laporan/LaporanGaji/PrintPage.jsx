@@ -141,11 +141,11 @@ const PrintPage = () => {
                 <th>NIK</th>
                 <th>Nama Pegawai</th>
                 <th>Jabatan Pegawai</th>
-                <th>Hadir (Hari)</th>
-                <th>Sakit (Hari)</th>
-                <th>Alpha (Hari)</th>
+                <th>Hadir(Hari)</th>
+                <th>Sakit(Hari)</th>
+                <th>Alpha(Hari)</th>
                 <th>Gaji Pokok</th>
-                <th>Tj. Transport</th>
+                <th>Tj.Transport</th>
                 <th>Uang Makan</th>
                 <th>Potongan</th>
                 <th>Total Gaji</th>
