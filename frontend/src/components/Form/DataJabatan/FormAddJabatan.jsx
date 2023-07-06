@@ -17,7 +17,7 @@ const FormAddJabatan = () => {
         try {
             await axios.post("http://localhost:5000/data-jabatan",  {
                 nama_jabatan    : namaJabatan,
-                gaji_pokok      : gajiPokok,
+                gaji_pokok      : gajiPokok.toLocaleString(),
                 tj_transport    : tjTransport,
                 uang_makan      : uangMakan
 
