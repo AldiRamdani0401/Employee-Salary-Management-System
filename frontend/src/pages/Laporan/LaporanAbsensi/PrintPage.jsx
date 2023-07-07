@@ -4,24 +4,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { getMe } from "../../../features/authSlice";
 
-
 const PrintPage = () => {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {isError, user} = useSelector((state => state.auth));
+  const { isError, user } = useSelector((state) => state.auth);
 
   useEffect(() => {
-      dispatch(getMe());
+    dispatch(getMe());
   }, [dispatch]);
 
   useEffect(() => {
-      if(isError){
-          navigate("/");
-      }
-      if(user && user.hak_akses !== 'admin'){
-          navigate("/dashboard");
-      }
+    if (isError) {
+      navigate("/");
+    }
+    if (user && user.hak_akses !== "admin") {
+      navigate("/dashboard");
+    }
   }, [isError, user, navigate]);
 
   const location = useLocation();
@@ -46,7 +44,7 @@ const PrintPage = () => {
   const getDataByYear = async (selectedYear) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/laporan/gaji/year/${selectedYear}`
+        `http://localhost:5000/laporan/absensi/year/${selectedYear}`
       );
       setDataYear(response.data);
       console.log("data dari tahun: ", response);
@@ -60,7 +58,7 @@ const PrintPage = () => {
   const getDataByMonth = async (selectedMonth) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/laporan/gaji/month/${selectedMonth}`
+        `http://localhost:5000/laporan/absensi/month/${selectedMonth}`
       );
       setDataMonth(response.data);
       console.log("data dari bulan: ", response);
@@ -95,8 +93,15 @@ const PrintPage = () => {
         margin: 2cm;
         zoom: 0.8;
       }
+      table{
+        margin-left: 21%;
+      }
+      p#periode{
+        margin-left: 15%;
+      }
       h1 {
         text-align: center;
+        font-size: 15px;
       }
       p {
         font-size: 10px;
@@ -109,10 +114,13 @@ const PrintPage = () => {
         font-size: 8px;
       }
       .tandaTangan{
-        margin-left: 380px;
+        margin-left: 280px;
       }
-      .tandaTangan p#bagian{
-        margin-left: 70px
+      .tandaTangan p#tanggal{
+        font-size: 10px;
+      }
+      .tandaTangan .bagian p#bagian{
+        margin-left: 110px;
       }
     }`;
     document.head.appendChild(printStyle);
@@ -146,13 +154,13 @@ const PrintPage = () => {
       <div className="columns">
         <div className="column">
           <h1 className="has-text-weight-bold">
-            LAPORAN GAJI PEGAWAI PT . MULIA SEJATI NUSANTARA
+            LAPORAN ABSENSI PEGAWAI PT . MULIA SEJATI NUSANTARA
           </h1>
         </div>
       </div>
       <div className="columns">
         <div className="column">
-          <p className="has-text-weight-bold mt-5 mb-2">
+          <p id="periode" className="has-text-weight-bold mt-5 mb-2">
             Periode : {month} {year}
           </p>
           <table className="table is-bordered is-striped is-narrow has-text-centered p-3">
@@ -165,11 +173,6 @@ const PrintPage = () => {
                 <th>Hadir(Hari)</th>
                 <th>Sakit(Hari)</th>
                 <th>Alpha(Hari)</th>
-                <th>Gaji Pokok</th>
-                <th>Tj.Transport</th>
-                <th>Uang Makan</th>
-                <th>Potongan</th>
-                <th>Total Gaji</th>
               </tr>
             </thead>
             <tbody>
@@ -182,11 +185,6 @@ const PrintPage = () => {
                   <td>{data.hadir}</td>
                   <td>{data.sakit}</td>
                   <td>{data.alpha}</td>
-                  <td>Rp.{data.gaji_pokok}</td>
-                  <td>Rp.{data.tj_transport}</td>
-                  <td>Rp.{data.uang_makan}</td>
-                  <td>Rp.{data.potongan}</td>
-                  <td>Rp.{data.total_gaji}</td>
                 </tr>
               ))}
             </tbody>
@@ -194,16 +192,18 @@ const PrintPage = () => {
 
           <div className="tandaTangan">
             <div className="columns">
-              <div className="column is-three-fifths ml-6">
-                <p className="has-text-weight-bold has-text-right">
+              <div className="column" style={{ marginRight: "63%" }}>
+                <p id="tanggal" className="has-text-weight-bold has-text-right">
                   {kota}, {tanggal} {month} {year}
                 </p>
-                <p
-                  className="has-text-weight-bold has-text-right mr-6"
-                  id="bagian"
-                >
-                  Finance
-                </p>
+                <div className="bagian">
+                  <p
+                    className="has-text-weight-bold has-text-right mr-6"
+                    id="bagian"
+                  >
+                    Finance
+                  </p>
+                </div>
                 <br />
                 <br />
                 <p className="has-text-weight-bold has-text-right">
@@ -216,10 +216,22 @@ const PrintPage = () => {
       </div>
       <div className="columns">
         <div className="column">
-          <button id="print-button" type="submit" className="button is-link" onClick={handlePrint}>
+          <button
+            id="print-button"
+            type="submit"
+            className="button is-link"
+            onClick={handlePrint}
+          >
             Print
           </button>
-          <Link id="kembali" to={'/laporan/gaji'} type='button' className="button is-danger ml-3">Kembali</Link>
+          <Link
+            id="kembali"
+            to={"/laporan/absensi"}
+            type="button"
+            className="button is-danger ml-3"
+          >
+            Kembali
+          </Link>
         </div>
       </div>
       <div className="columns">

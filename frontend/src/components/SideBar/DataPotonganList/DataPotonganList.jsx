@@ -46,7 +46,7 @@ const DataPotonganList = () => {
                 <tr key={potongan.id}>
                     <td>{index + 1}</td>
                     <td>{potongan.potongan}</td>
-                    <td>{potongan.jml_potongan}</td>
+                    <td>{potongan.jml_potongan.toLocaleString()}</td>
                     <td>
                         <Link to={`/data-potongan/edit/${potongan.id}`}
                         className='button is-small is-info'>Edit</Link>

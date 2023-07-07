@@ -3,7 +3,7 @@ import axios from "axios";
 import { IoPeopleSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
-const LaporanGajiList = () => {
+const LaporanAbsensiList = () => {
   const navigate = useNavigate();
   const [searchMonth, setSearchMonth] = useState("");
   const [searchYear, setSearchYear] = useState("");
@@ -14,10 +14,10 @@ const LaporanGajiList = () => {
 
   const [showMessage, setShowMessage] = useState(false);
 
-  const getLaporanGajiByYear = async (year, onDataFound) => {
+  const getLaporanAbsensiByYear = async (year, onDataFound) => {
     try {
       const tahun = await axios.get(
-        `http://localhost:5000/laporan/gaji/year/${year}`
+        `http://localhost:5000/laporan/absensi/year/${year}`
       );
       setDataYear(tahun.data);
       onDataFound();
@@ -33,10 +33,10 @@ const LaporanGajiList = () => {
     }
   };
 
-  const getLaporanGajiByMonth = async (month, onDataFound) => {
+  const getLaporanAbsensiByMonth = async (month, onDataFound) => {
     try {
       const bulan = await axios.get(
-        `http://localhost:5000/laporan/gaji/month/${month}`
+        `http://localhost:5000/laporan/absensi/month/${month}`
       );
       onDataFound();
       setFoundData(bulan.data); // Set the found data in the state
@@ -69,15 +69,15 @@ const LaporanGajiList = () => {
     let monthDataFound = false;
 
     await Promise.all([
-      getLaporanGajiByYear(selectedYear, () => (yearDataFound = true)),
-      getLaporanGajiByMonth(selectedMonth, () => (monthDataFound = true)),
+      getLaporanAbsensiByYear(selectedYear, () => (yearDataFound = true)),
+      getLaporanAbsensiByMonth(selectedMonth, () => (monthDataFound = true)),
     ]);
     setShowMessage(true);
 
     if (yearDataFound && monthDataFound) {
       setShowMessage(false);
       navigate(
-        `/laporan/gaji/print-page?month=${selectedMonth}&year=${selectedYear}`
+        `/laporan/absensi/print-page?month=${selectedMonth}&year=${selectedYear}`
       );
     } else {
       setTimeout(() => {
@@ -101,13 +101,13 @@ const LaporanGajiList = () => {
       <div className="container">
         <div className="header p-5 has-background-link is-flex is-justify-content-space-between">
           <h1 className="title p-3 has-text-white">
-            <IoPeopleSharp size="30px" /> Laporan Gaji
+            <IoPeopleSharp size="30px" /> Laporan Absensi
           </h1>
         </div>
         <div className="card is-shadowless mt-2 p-3">
           <div className="p-1">
             <label className="label has-text-black">
-              Filter Laporan Gaji Pegawai
+              Filter Laporan Absensi Pegawai
             </label>
             <hr />
             <form onSubmit={handleSearch}>
@@ -168,4 +168,4 @@ const LaporanGajiList = () => {
   );
 };
 
-export default LaporanGajiList;
+export default LaporanAbsensiList;

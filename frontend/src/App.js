@@ -23,7 +23,11 @@ import DataGaji from "./pages/DataGaji/DataGaji.jsx";
 import DetailDataGaji from "./components/SideBar/DataGajiList/DetailDataGaji/DetailDataGaji.jsx"
 
 import LaporanGaji from "./pages/Laporan/LaporanGaji/LaporanGaji.jsx";
-import PrintPage from "./pages/Laporan/LaporanGaji/PrintPage.jsx";
+import PrintPageGaji from "./pages/Laporan/LaporanGaji/PrintPage.jsx";
+import LaporanAbsensi from "./pages/Laporan/LaporanAbsensi/LaporanAbsensi.jsx";
+import PrintPageAbsensi from "./pages/Laporan/LaporanAbsensi/PrintPage.jsx";
+
+
 
 function App(){
   return (
@@ -60,8 +64,9 @@ function App(){
         </Routes>
         <Routes>
           <Route path="/laporan/gaji" element={<LaporanGaji/>}/>
-          <Route path="/laporan/gaji/print-page" element={<PrintPage/>} />
-          <Route path="/data-gaji/add" element={<AddDataPotongan/>}/>
+          <Route path="/laporan/gaji/print-page" element={<PrintPageGaji/>} />
+          <Route path="/laporan/absensi" element={<LaporanAbsensi/>}/>
+          <Route path="/laporan/absensi/print-page" element={<PrintPageAbsensi/>} />
           <Route path="/data-gaji/name/:name" element={<DetailDataGaji/>}/>
         </Routes>
       </Router>

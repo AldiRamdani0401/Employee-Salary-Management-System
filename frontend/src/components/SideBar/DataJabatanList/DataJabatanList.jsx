@@ -46,9 +46,9 @@ const DataJabatanList = () => {
                 <tr key={jabatan.id}>
                     <td>{index + 1}</td>
                     <td>{jabatan.nama_jabatan}</td>
-                    <td>{jabatan.gaji_pokok}</td>
-                    <td>{jabatan.tj_transport}</td>
-                    <td>{jabatan.uang_makan}</td>
+                    <td>{jabatan.gaji_pokok.toLocaleString()}</td>
+                    <td>{jabatan.tj_transport.toLocaleString()}</td>
+                    <td>{jabatan.uang_makan.toLocaleString()}</td>
                     <td>
                         <Link to={`/data-jabatan/edit/${jabatan.id}`}
                         className='button is-small is-info'>Edit</Link>
