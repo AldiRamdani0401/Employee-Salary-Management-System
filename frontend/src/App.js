@@ -26,6 +26,9 @@ import LaporanGaji from "./pages/Laporan/LaporanGaji/LaporanGaji.jsx";
 import PrintPageGaji from "./pages/Laporan/LaporanGaji/PrintPage.jsx";
 import LaporanAbsensi from "./pages/Laporan/LaporanAbsensi/LaporanAbsensi.jsx";
 import PrintPageAbsensi from "./pages/Laporan/LaporanAbsensi/PrintPage.jsx";
+import SlipGaji from "./pages/Laporan/SlipGaji/SlipGaji.jsx";
+import PrintPageSlipGaji from "./pages/Laporan/SlipGaji/PrintPage.jsx";
+
 
 
 
@@ -67,7 +70,8 @@ function App(){
           <Route path="/laporan/gaji/print-page" element={<PrintPageGaji/>} />
           <Route path="/laporan/absensi" element={<LaporanAbsensi/>}/>
           <Route path="/laporan/absensi/print-page" element={<PrintPageAbsensi/>} />
-          <Route path="/data-gaji/name/:name" element={<DetailDataGaji/>}/>
+          <Route path="/laporan/slip-gaji" element={<SlipGaji/>}/>
+          <Route path="/laporan/slip-gaji/print-page" element={<PrintPageSlipGaji/>} />
         </Routes>
       </Router>
     </div>

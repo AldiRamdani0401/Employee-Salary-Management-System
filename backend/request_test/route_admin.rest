@@ -223,10 +223,10 @@ DELETE http://localhost:5000/data-potongan/3
 GET http://localhost:5000/data-gaji
 
 ### get Data Gaji Pegawai By ID
-GET http://localhost:5000/data-gaji/1
+GET http://localhost:5000/data-gaji/10
 
 ### get Data Gaji Pegawai By Name
-GET http://localhost:5000/data-gaji/name/Aldi
+GET http://localhost:5000/data-gaji/name/Aldi Ramdani
 
 ### get All Data Gaji Pegawai By Month
 GET http://localhost:5000/data-gaji/month/Juni
@@ -247,8 +247,8 @@ GET http://localhost:5000/data-gaji/year/2023
 ### get All Data Laporan Gaji
 GET http://localhost:5000/laporan/gaji
 
-### get All Data Laporan Gaji By Name
-GET http://localhost:5000/laporan/gaji/name/nana
+### get Data Laporan Gaji By Name
+GET http://localhost:5000/laporan/gaji/name/Aldi Ramdani
 
 ### get All Data Laporan Gaji By Month
 GET http://localhost:5000/laporan/gaji/month/juli
@@ -270,7 +270,7 @@ GET http://localhost:5000/laporan/absensi/year/2023
 /////// Slip Gaji //////
 
 ### get Slip Gaji By Name
-GET http://localhost:5000/laporan/slip-gaji/name/caca
+GET http://localhost:5000/laporan/slip-gaji/name/aldi ramdani
 
 ### get Slip Gaji By Month
 GET http://localhost:5000/laporan/slip-gaji/month/juli

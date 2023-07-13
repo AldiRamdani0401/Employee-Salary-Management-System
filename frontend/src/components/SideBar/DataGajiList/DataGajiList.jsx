@@ -39,7 +39,6 @@ const DataGajiList = () => {
           </thead>
           <tbody>
             {dataGaji.map((data, index) => (
-              // Pengecekan jika tahun dan bulan bernilai 0, maka tidak ditampilkan
               data.tahun !== 0 && data.bulan !== 0 && (
                 <tr key={data.id}>
                   <td>{index + 1}</td>
